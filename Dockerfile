@@ -1,6 +1,11 @@
-FROM itzg/ubuntu-openjdk-7
+FROM ubuntu:trusty
 
-MAINTAINER itzg
+ENV APT_GET_UPDATE 2014-10-14
+RUN apt-get update
+RUN apt-get install -y openjdk-7-jre-headless
+ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
+
+MAINTAINER jmbjr
 
 RUN apt-get install -y wget libmozjs-24-bin imagemagick && apt-get clean
 RUN update-alternatives --install /usr/bin/js js /usr/bin/js24 100
