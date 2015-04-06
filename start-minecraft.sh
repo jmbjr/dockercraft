@@ -21,7 +21,7 @@ cd /data
 if [ ! -e unleashed.zip ]; then
   echo "Downloading unleashed ..."
   wget -q http://www.creeperrepo.net/FTB2/modpacks%5EUnleashed%5E1_1_7%5EUnleashed-server.zip
-  mv modpacks%5EUnleashed%5E1_1_7%5EUnleashed-server.zip unleashed.zip
+  mv modpacks^Unleashed^1_1_7^Unleashed-server.zip  unleashed.zip
   unzip unleashed.zip
 fi
 
