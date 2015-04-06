@@ -15,21 +15,14 @@ if [ ! -e /data/eula.txt ]; then
   fi
 fi
 
-case $VERSION in
-  LATEST)
-    export VERSION=`wget -O - https://s3.amazonaws.com/Minecraft.Download/versions/versions.json | jsawk -n 'out(this.latest.release)'`
-    ;;
-
-  SNAPSHOT)
-    export VERSION=`wget -O - https://s3.amazonaws.com/Minecraft.Download/versions/versions.json | jsawk -n 'out(this.latest.snapshot)'`
-    ;;
-esac
 
 cd /data
 
-if [ ! -e minecraft_server.$VERSION.jar ]; then
-  echo "Downloading minecraft_server.$VERSION.jar ..."
-  wget -q https://s3.amazonaws.com/Minecraft.Download/versions/$VERSION/minecraft_server.$VERSION.jar
+if [ ! -e unleashed.zip ]; then
+  echo "Downloading unleashed ..."
+  wget -q http://www.creeperrepo.net/FTB2/modpacks%5EUnleashed%5E1_1_7%5EUnleashed-server.zip
+  mv modpacks%5EUnleashed%5E1_1_7%5EUnleashed-server.zip unleashed.zip
+  unzip unleashed.zip
 fi
 
 if [ ! -e server.properties ]; then
@@ -85,5 +78,5 @@ if [ -n "$ICON" -a ! -e server-icon.png ]; then
   fi
 fi
 
-exec java $JVM_OPTS -jar minecraft_server.$VERSION.jar
+exec java $JVM_OPTS -jar ftbserver.jar
 
