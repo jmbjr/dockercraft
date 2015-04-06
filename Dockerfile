@@ -28,7 +28,7 @@ WORKDIR /data
 
 CMD [ "/start-minecraft" ]
 
-ENV MOTD A Minecraft Server Powered by Docker
+ENV MOTD Welcome to Boylecraft!!
 ENV LEVEL world
 ENV JVM_OPTS -Xmx1024M -Xms1024M
 ENV VERSION LATEST
