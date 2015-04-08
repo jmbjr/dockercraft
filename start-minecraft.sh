@@ -15,14 +15,17 @@ if [ ! -e /data/eula.txt ]; then
   fi
 fi
 
-http://www.creeperrepo.net/FTB2/modpacks%5EFTBResurrection%5E1_0_0%5EFTBResurrectionServer.zip
 cd /data
 
-if [ ! -e unleashed.zip ]; then
-  echo "Downloading unleashed ..."
-  wget -q http://www.creeperrepo.net/FTB2/modpacks%5EFTBResurrection%5E1_0_0%5EFTBResurrectionServer.zip
-  mv modpacks^FTBResurrection^1_0_0^FTBResurrectionServer.zip  resurrection.zip
-  unzip resurrection.zip
+gamename='resurrection'
+url="http://www.creeperrepo.net/FTB2/modpacks%5EFTBResurrection%5E1_0_0%5EFTBResurrectionServer.zip"
+rawzip="modpacks^FTBResurrection^1_0_0^FTBResurrectionServer.zip"
+
+if [ ! -e "${gamename}.zip" ]; then
+  echo "Downloading ${gamename} ..."
+  wget -q ${url}
+  mv "${rawzip}"  "${gamename}.zip"
+  unzip "${gamename}.zip"
 fi
 
 if [ ! -e server.properties ]; then
