@@ -20,7 +20,7 @@ cd /data
 gamename='resurrection'
 url="http://www.creeperrepo.net/FTB2/modpacks%5EFTBResurrection%5E1_0_0%5EFTBResurrectionServer.zip"
 rawzip="modpacks^FTBResurrection^1_0_0^FTBResurrectionServer.zip"
-jarfiel="FTBServer-1.7.10-1263.jar"
+jarfile="FTBServer-1.7.10-1263.jar"
 
 if [ ! -e "${gamename}.zip" ]; then
   echo "Downloading ${gamename} ..."
