@@ -3,7 +3,7 @@ FROM ubuntu:trusty
 ENV APT_GET_UPDATE 2014-10-14
 RUN apt-get update
 RUN apt-get install -y openjdk-7-jre-headless
-RUN apt-get install zip -y
+RUN apt-get install -y unzip 
 ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
 
 MAINTAINER jmbjr
