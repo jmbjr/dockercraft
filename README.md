@@ -9,40 +9,40 @@ clone this repo
 
 Prep the server image (this part is kinda clunky and should be generalized one day. see the issues)
 
-  $ cd mcserver
+    $ cd mcserver  
 
 edit the following variables in start-minecraft.sh (this should be an external file)
 
-  gamename='monster'  #shortname 
-  url="http://www.creeperrepo.net/FTB2/modpacks%5EMonster%5E1_1_1%5EMonsterServer.zip"  #point to whichever server.zip you want to play
-  rawzip="modpacks^Monster^1_1_1^MonsterServer.zip"  #could use regex and ${url} to automatically set
-  jarfile="FTBServer-1.6.4-965.jar"  #the jar file to run from within the zip.
+    gamename='monster'  #shortname 
+    url="http://www.creeperrepo.net/FTB2/modpacks%5EMonster%5E1_1_1%5EMonsterServer.zip"  #point to whichever server.zip you want to play
+    rawzip="modpacks^Monster^1_1_1^MonsterServer.zip"  #could use regex and ${url} to automatically set
+    jarfile="FTBServer-1.6.4-965.jar"  #the jar file to run from within the zip.
 
 Build the images:
 
-  $ cd mcserver
+    $ cd mcserver
 
-  $ docker build -t jmbjr/mcserver-monster .
+    $ docker build -t jmbjr/mcserver-monster .
 
-  $ cd ../mcdata
+    $ cd ../mcdata
 
-  $ docker build -t jmbjr/mcdata
+    $ docker build -t jmbjr/mcdata
 
 view your images with:
 
-  $ docker images
+    $ docker images
 
 Run the containers:
 need to run the data container first:  
 
-  $ docker run -d -it --name mcdata-mon jmbjr/mcdata  
+    $ docker run -d -it --name mcdata-mon jmbjr/mcdata  
     -d      run daemonized
     -it     allow $ docker attach mcdata-mon
     --name  name the container for easy access later
 
 run the server container and point to the data container:
 
-  $ docker run -e EULA=TRUE -d -it -p 25565:25565 --name mcserver-mon --volumes-from mcdata-mon jmbjr/mcserver-monster
+    $ docker run -e EULA=TRUE -d -it -p 25565:25565 --name mcserver-mon --volumes-from mcdata-mon jmbjr/mcserver-monster
     -e              set environemnt variable to accept the mojang EULA (see mcserver/README.md for more info)
     -d              run daemonized
     -it             allow $ docker attach mcserver-mon
@@ -52,35 +52,35 @@ run the server container and point to the data container:
 
 view running containers via:
 
-  $ docker ps
+    $ docker ps
 
 view ALL containers, regardless of running or not via:
 
-  $ docker ps -a
+    $ docker ps -a
 
 view log file from a container (useful when docker ps doesn't show your container running)
 
-  $ docker logs <container --name> 
+    $ docker logs <container --name> 
 
 attach to the container (to view the minecraft server console or to view the mc data)
 
-  $ docker attach <container --name>
+    $ docker attach <container --name>
 
 use ctrl+p ctrl+q to detach
 
 to start and stop the container:
 
-  $ docker start <container --name>
+    $ docker start <container --name>
 
-  $ docker stop  <container --name>
+    $ docker stop  <container --name>
 
 to remove/delete containers:
 
-  $ docker rm <container --name>
+    $ docker rm <container --name>
 
 to remove/delete images
 
-  $ docker rmi <image --name>
+    $ docker rmi <image --name>
 
 
 
