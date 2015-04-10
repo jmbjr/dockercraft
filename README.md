@@ -1,3 +1,6 @@
+THIS is based heavily on https://github.com/itzg/dockerfiles
+(I didn't want to fork the entire repo which contains many different dockerfiles)
+
 This docker image provides a Minecraft Server that will automatically download the latest stable
 version at startup. You can also run/upgrade to any specific version or the
 latest snapshot. See the *Versions* section below for more information.
