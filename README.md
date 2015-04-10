@@ -2,10 +2,11 @@
 simple docker container for a minecraft server
 
 This is based heavily on https://github.com/itzg/dockerfiles (I didn't want to fork the entire repo which contains many different dockerfiles)
-The data-only container is simple, but was intially based on: https://registry.hub.docker.com/u/aduermael/minecraft-data/
+
+The data-only container is simple, but was intially based on: <br />https://registry.hub.docker.com/u/aduermael/minecraft-data/
 
 Starting from scratch:
-clone this repo
+<br />clone this repo
 
 Prep the server image (this part is kinda clunky and should be generalized one day. see the issues)
 
@@ -33,7 +34,7 @@ view your images with:
     $ docker images
 
 Run the containers:
-need to run the data container first:  
+<br />need to run the data container first:  
 
     $ docker run -d -it --name mcdata-mon jmbjr/mcdata  
     -d      run daemonized
