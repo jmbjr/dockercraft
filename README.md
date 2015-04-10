@@ -12,7 +12,7 @@ Prep the server image (this part is kinda clunky and should be generalized one d
 
     $ cd mcserver  
 
-edit the following variables in start-minecraft.sh (this should be an external file)
+edit the following variables in start-minecraft.sh (one day this should be an external file)
 
     gamename='monster'  #shortname 
     url="http://www.creeperrepo.net/FTB2/modpacks%5EMonster%5E1_1_1%5EMonsterServer.zip"  #point to whichever server.zip you want to play
